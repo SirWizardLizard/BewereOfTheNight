@@ -4,7 +4,7 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 18
-  productGUID: 62c1f309edc4f4cbba21b68327d947af
+  productGUID: 3362172c886ceb54c8affd3ae4b72b43
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   AndroidEnableSustainedPerformanceMode: 0
@@ -234,7 +234,6 @@ PlayerSettings:
   metalEditorSupport: 1
   metalAPIValidation: 1
   iOSRenderExtraFrameOnPause: 0
-  iosCopyPluginsCodeInsteadOfSymlink: 0
   appleDeveloperTeamID: 
   iOSManualSigningProvisioningProfileID: 
   tvOSManualSigningProvisioningProfileID: 
@@ -311,7 +310,6 @@ PlayerSettings:
   switchTitleNames_12: 
   switchTitleNames_13: 
   switchTitleNames_14: 
-  switchTitleNames_15: 
   switchPublisherNames_0: 
   switchPublisherNames_1: 
   switchPublisherNames_2: 
@@ -327,7 +325,6 @@ PlayerSettings:
   switchPublisherNames_12: 
   switchPublisherNames_13: 
   switchPublisherNames_14: 
-  switchPublisherNames_15: 
   switchIcons_0: {fileID: 0}
   switchIcons_1: {fileID: 0}
   switchIcons_2: {fileID: 0}
@@ -343,7 +340,6 @@ PlayerSettings:
   switchIcons_12: {fileID: 0}
   switchIcons_13: {fileID: 0}
   switchIcons_14: {fileID: 0}
-  switchIcons_15: {fileID: 0}
   switchSmallIcons_0: {fileID: 0}
   switchSmallIcons_1: {fileID: 0}
   switchSmallIcons_2: {fileID: 0}
@@ -359,7 +355,6 @@ PlayerSettings:
   switchSmallIcons_12: {fileID: 0}
   switchSmallIcons_13: {fileID: 0}
   switchSmallIcons_14: {fileID: 0}
-  switchSmallIcons_15: {fileID: 0}
   switchManualHTML: 
   switchAccessibleURLs: 
   switchLegalInformation: 
@@ -461,7 +456,7 @@ PlayerSettings:
   ps4DownloadDataSize: 0
   ps4GarlicHeapSize: 2048
   ps4ProGarlicHeapSize: 2560
-  ps4Passcode: 5PN2qmWqBlQ9wQj99nsQzldVI5ZuGXbE
+  ps4Passcode: frAQBc8Wsa1xVPfvJcrgRYwTiizs2trQ
   ps4pnSessions: 1
   ps4pnPresence: 1
   ps4pnFriends: 1
@@ -490,7 +485,6 @@ PlayerSettings:
   ps4videoRecordingFeaturesUsed: 0
   ps4contentSearchFeaturesUsed: 0
   ps4CompatibilityPS5: 0
-  ps4AllowPS5Detection: 0
   ps4GPU800MHz: 1
   ps4attribEyeToEyeDistanceSettingVR: 0
   ps4IncludedModules: []
