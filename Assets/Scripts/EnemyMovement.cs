@@ -6,6 +6,7 @@ public class EnemyMovement : MonoBehaviour
 {
     // start is called before the first frame update
     public float speed; 
+    public int health; 
     public Transform groundDetection; 
     private bool moveRight = true; 
     public float Raycast; 
@@ -18,6 +19,11 @@ public class EnemyMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (health <= 0)
+        {
+            Destroy(gameObject); 
+        }
+
         transform.Translate(Vector2.right * speed * Time.deltaTime); 
         RaycastHit2D groundInfo = Physics2D.Raycast(groundDetection.position, Vector2.down,Raylength); 
         if (groundInfo.collider == false)
