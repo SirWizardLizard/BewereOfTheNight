@@ -20,7 +20,7 @@ public class HealthPowerUps : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter2D(Collider other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Health") && !triggered)
         {
