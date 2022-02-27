@@ -4,16 +4,20 @@ using UnityEngine;
 
 public class AttackPowerUp : MonoBehaviour
 {
-    public PlayerAttackDamage damageScript;
+    public PlayerAttack damageScript;
     
     public int damageBonus;
     private void Awake()
     {
-        damageScript = FindObjectOfType<PlayerAttackDamage>();
+        damageScript = FindObjectOfType<PlayerAttack>();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        //damageScript.damage *= 2;
+        if (other.CompareTag("Player"))
+        {
+            Destroy(gameObject);
+            damageScript.damage *= 2;
+        }
     }
 }
