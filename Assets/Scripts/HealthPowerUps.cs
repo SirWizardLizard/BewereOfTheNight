@@ -6,26 +6,19 @@ public class HealthPowerUps : MonoBehaviour
 {
     public PlayerHealth playerHealthScript;
 
-    private bool triggered;
+    public int healthBonus = 10;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
-        playerHealthScript = GameObject.FindObjectOfType<PlayerHealth>();
+        playerHealthScript = FindObjectOfType<PlayerHealth>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        
-    }
-
-    private void OnTriggerEnter2D(Collider other)
-    {
-        if (other.CompareTag("Health") && !triggered)
+        if (playerHealthScript.playerHealth < playerHealthScript.maxHealth)
         {
-            triggered = true;
-            playerHealthScript.playerHealth += 20;
+            Destroy(gameObject);
+            playerHealthScript.playerHealth += healthBonus;
         }
     }
 }
