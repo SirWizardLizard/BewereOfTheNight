@@ -5,15 +5,20 @@ using UnityEngine;
 public class EnemyMovement : MonoBehaviour
 {
     // start is called before the first frame update
-    public float speed; 
+    public float speed;
+    public int maxHealth;
     public int health; 
     public Transform groundDetection; 
     private bool moveRight = true; 
     public float Raycast; 
-    public float Raylength; 
+    public float Raylength;
+
+    public HealthBar healthBar;
+
     void Start()
     {
-        
+        health = maxHealth;
+        healthBar.SetMaxHealth(maxHealth);
     }
 
     // Update is called once per frame

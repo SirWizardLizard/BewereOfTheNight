@@ -10,8 +10,8 @@ public class PlayerAttack : MonoBehaviour
     public Transform attackPos; 
     public LayerMask whatIsEnemy; 
     public float attackRange; 
-    public int damage; 
-
+    public int damage;
+    public int currentHealth;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,10 +25,13 @@ public class PlayerAttack : MonoBehaviour
         {
             if (Input.GetMouseButton(0))
             {
+                //Debug.Log("The left mouse button has been clicked");
                 Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackPos.position, attackRange, whatIsEnemy);
                 for (int i = 0; i < enemiesToDamage.Length; i++)
                 {
-                    enemiesToDamage[i].GetComponent<EnemyMovement>().health -= damage; 
+                    //Debug.Log("The enemy has been hit! Huzzah!");
+                    currentHealth = enemiesToDamage[i].GetComponent<EnemyMovement>().health -= damage;
+                    enemiesToDamage[i].GetComponent<HealthBar>().SetHealth(currentHealth);
                 }
             }
             timeBtwAttack = startTimeBtwAttack;
