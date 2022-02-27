@@ -191,7 +191,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-    - target: {fileID: 6408951073418603989, guid: 29d3c7287222b8c4e884e66dc79f1e78,
 --- !u!1 &504436468
 GameObject:
   m_ObjectHideFlags: 0
