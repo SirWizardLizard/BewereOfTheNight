@@ -5,25 +5,15 @@ using UnityEngine;
 public class AttackPowerUp : MonoBehaviour
 {
     public PlayerAttackDamage damageScript;
-    private bool triggered;
-
-    // Start is called before the first frame update
-    void Start()
+    
+    public int damageBonus;
+    private void Awake()
     {
-        damageScript = GameObject.FindObjectOfType<PlayerAttackDamage>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        damageScript = FindObjectOfType<PlayerAttackDamage>();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Attack") && !triggered)
-        {
-
-        }
+        //damageScript.damage *= 2;
     }
 }
