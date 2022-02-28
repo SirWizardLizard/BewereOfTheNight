@@ -9,9 +9,6 @@ TagManager:
   - Health
   - Enemy
   - Ground
-  - Background
-  - Goal
-  - Attack
   layers:
   - Default
   - TransparentFX
