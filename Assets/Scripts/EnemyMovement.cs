@@ -1,3 +1,8 @@
+/* Team 1
+ * project 2
+ * controls enemy stats
+ */
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
