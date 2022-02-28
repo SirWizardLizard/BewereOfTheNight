@@ -307,6 +307,11 @@ PrefabInstance:
       propertyPath: m_UiScaleMode
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4244111001110548243, guid: f35b578916fc143a7a492511dad2c28c,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4963144383246044457, guid: f35b578916fc143a7a492511dad2c28c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -660,7 +665,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 58.3, y: 50.3}
+  m_AnchoredPosition: {x: 148.9, y: 50.4}
   m_SizeDelta: {x: 197.61774, y: 84.84834}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &228892880
@@ -694,8 +699,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Press "A" to move left, "D" to move right, and "W" or "Space" To Jump! Reach
-    the flag at the end of the level!
+  m_Text: 'Press "A" to move left, "D" to move right, and "W" or "Space" To Jump!
+    Reach the flag at the end of the level! If you fail, press "R" to restart. '
 --- !u!222 &228892881
 CanvasRenderer:
   m_ObjectHideFlags: 0
