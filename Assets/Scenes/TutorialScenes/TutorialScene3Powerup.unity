@@ -310,6 +310,11 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4244111001110548243, guid: f35b578916fc143a7a492511dad2c28c,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4963144383246044457, guid: f35b578916fc143a7a492511dad2c28c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1077,7 +1082,7 @@ GameObject:
   - component: {fileID: 1324657167}
   - component: {fileID: 1324657166}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: UIManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

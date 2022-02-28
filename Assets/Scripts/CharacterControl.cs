@@ -104,6 +104,7 @@ public class CharacterControl : MonoBehaviour
         if (transform.position.y < -2) {
             gameOver = true;
             Destroy(gameObject);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
 
