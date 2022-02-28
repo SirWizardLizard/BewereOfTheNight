@@ -143,8 +143,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9456b6107e954c308e8d07d69434c01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  killCounterScript: {fileID: 0}
+  textBox: {fileID: 0}
   slash: {fileID: 8300000, guid: 70a406c399753436b95cbf772ff99fb1, type: 3}
-  enemyDamage: 0
+  enemyDamage: 5
   speed: 2
   health: 30
   groundDetection: {fileID: 1046025030880829223}
