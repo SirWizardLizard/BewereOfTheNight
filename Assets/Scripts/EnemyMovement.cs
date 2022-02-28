@@ -1,6 +1,6 @@
 ﻿/* Team 1
  * Project 2
- * controls aenemy health
+ * controls enemy health
  */
 
 using System.Collections;
