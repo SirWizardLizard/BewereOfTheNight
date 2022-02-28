@@ -30,7 +30,8 @@ public class CharacterControl : MonoBehaviour
     bool facingRight = true;
     float moveDirection = 0;
     bool isGrounded = false;
-    bool isOnGround = true; 
+    bool isOnGround = true;
+    bool gameOver = false;
     Vector3 cameraPos;
     Rigidbody2D r2d;
     CapsuleCollider2D mainCollider;
@@ -98,6 +99,12 @@ public class CharacterControl : MonoBehaviour
         if(playerHealth <= 0) {
             Destroy(gameObject);
             gameOver = true;
+        }
+
+        //Kill player if their y value falls below -2 and set the game to be over.
+        if (transform.position.y < -2) {
+            gameOver = true;
+            Destroy(gameObject);
         }
     }
 

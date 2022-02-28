@@ -12,7 +12,7 @@ TagManager:
   - Background
   - Goal
   - Attack
-  - GameOverText
+  - KillCounterText
   layers:
   - Default
   - TransparentFX
