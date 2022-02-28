@@ -50,7 +50,8 @@ public class EnemyMovement : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             enemyAudio.PlayOneShot(slash, 1.0F);
-            //collision.GetComponent<what ever the player health thing is called>().enemyDamage()
+            //Hurt the player and update their health bar
+            other.GetComponent<HealthBar>().SetHealth(other.GetComponent<CharacterControl>().playerHealth -= enemyDamage);
         }
     }
 

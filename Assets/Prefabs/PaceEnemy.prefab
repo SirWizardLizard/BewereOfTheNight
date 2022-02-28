@@ -144,8 +144,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slash: {fileID: 8300000, guid: 70a406c399753436b95cbf772ff99fb1, type: 3}
+  enemyDamage: 1
   speed: 2
-  enemyDamage: 0
   health: 6
   groundDetection: {fileID: 1046025030880829223}
   Raycast: 2
