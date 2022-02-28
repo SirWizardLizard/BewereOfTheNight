@@ -9,6 +9,10 @@ TagManager:
   - Health
   - Enemy
   - Ground
+  - Background
+  - Goal
+  - Attack
+  - KillCounterText
   layers:
   - Default
   - TransparentFX
