@@ -12,6 +12,8 @@ using UnityEngine;
 
 public class CharacterControl : MonoBehaviour
 {
+    public Transform player;
+    public Vector3 offset;
     private AudioSource playerAudio; 
     public AudioClip jump; 
     public int playerHealth; 
@@ -24,6 +26,7 @@ public class CharacterControl : MonoBehaviour
     bool facingRight = true;
     float moveDirection = 0;
     bool isGrounded = false;
+    bool isOnGround = true; 
     Vector3 cameraPos;
     Rigidbody2D r2d;
     CapsuleCollider2D mainCollider;
@@ -42,10 +45,7 @@ public class CharacterControl : MonoBehaviour
         r2d.gravityScale = gravityScale;
         facingRight = t.localScale.x > 0;
 
-        if (mainCamera)
-        {
-            cameraPos = mainCamera.transform.position;
-        }
+    
     }
 
     // Update is called once per frame
@@ -82,16 +82,15 @@ public class CharacterControl : MonoBehaviour
         // Jumping
         if ((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Space)) && isGrounded)
         {
+            isGrounded = false; 
             playerAudio.PlayOneShot(jump, 1.0F); 
             r2d.velocity = new Vector2(r2d.velocity.x, jumpHeight);
         }
 
         // Camera follow
-        if (mainCamera)
-        {
-            mainCamera.transform.position = new Vector3(t.position.x, cameraPos.y, cameraPos.z);
-        }
+        
     }
+
 
     void FixedUpdate()
     {
@@ -121,4 +120,5 @@ public class CharacterControl : MonoBehaviour
         Debug.DrawLine(groundCheckPos, groundCheckPos - new Vector3(0, colliderRadius, 0), isGrounded ? Color.green : Color.red);
         Debug.DrawLine(groundCheckPos, groundCheckPos - new Vector3(colliderRadius, 0, 0), isGrounded ? Color.green : Color.red);
     }
+    
 }

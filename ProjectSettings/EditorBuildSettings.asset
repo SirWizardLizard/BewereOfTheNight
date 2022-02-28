@@ -4,5 +4,32 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/TutorialScenes/TutorialScene0Jumping.unity
+    guid: 6b23e7e1687bc8948ad8d753472b6f06
+  - enabled: 1
+    path: Assets/Scenes/TutorialScenes/TutorialScene1Combat.unity
+    guid: 10a16728b69d95f45bae36d03f7b78f5
+  - enabled: 1
+    path: Assets/Scenes/TutorialScenes/TutorialScene3Powerup.unity
+    guid: 9dbec8ab91b1d744dbd59598f269f38d
+  - enabled: 1
+    path: Assets/Scenes/PostTutorialLevels/Level1.unity
+    guid: 2087b068d6373804e90cbc4e042029d4
+  - enabled: 1
+    path: Assets/Scenes/PostTutorialLevels/Level2.unity
+    guid: 8b660e30715eab34fb8202a32d3bb58f
+  - enabled: 1
+    path: Assets/Scenes/PostTutorialLevels/Level3.unity
+    guid: 1647d035e044dee42a1fec466de877e7
+  - enabled: 1
+    path: Assets/Scenes/PostTutorialLevels/Level4.unity
+    guid: f56ebd3834c392849889d062d9eb3768
+  - enabled: 1
+    path: Assets/Scenes/PostTutorialLevels/Level5.unity
+    guid: 96d9eb7058192074e803564edbe1c867
+  - enabled: 1
+    path: Assets/Scenes/PostTutorialLevels/Level6.unity
+    guid: 4fb88bd5ed783e143a8d8cb3cd5d47ef
   m_configObjects: {}
