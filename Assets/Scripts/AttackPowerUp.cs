@@ -4,26 +4,42 @@ using UnityEngine;
 
 public class AttackPowerUp : MonoBehaviour
 {
-    public PlayerAttackDamage damageScript;
-    private bool triggered;
+    public PlayerAttack damageScript;
 
-    // Start is called before the first frame update
-    void Start()
+    public GameObject pickupEffect;
+
+    public int multiplier = 2;
+
+    public float duration = 5f;
+    
+    public int damageBonus;
+    private void Awake()
     {
-        damageScript = GameObject.FindObjectOfType<PlayerAttackDamage>();
+        damageScript = FindObjectOfType<PlayerAttack>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        
-    }
-
-    private void OnTriggerEnter2D(Collider other)
-    {
-        if (other.CompareTag("Attack") && !triggered)
+        if (other.CompareTag("Player"))
         {
-
+            StartCoroutine(Pickup(other));
         }
+    }
+
+    IEnumerator Pickup(Collider2D player)
+    {
+        Instantiate(pickupEffect, transform.position, transform.rotation);
+
+        damageScript.damage *= multiplier;
+
+        GetComponent<SpriteRenderer>().enabled = false;
+
+        GetComponent<Collider2D>().enabled = false;
+
+        yield return new WaitForSeconds(duration);
+
+        damageScript.damage /= multiplier;
+
+        Destroy(gameObject);
     }
 }

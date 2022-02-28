@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
+    public AudioClip bark; 
+    private AudioSource playerAudio; 
     private float timeBtwAttack;
     public float startTimeBtwAttack; 
 
@@ -12,10 +14,12 @@ public class PlayerAttack : MonoBehaviour
     public float attackRange; 
     public int damage;
     public int currentHealth;
+    AudioSource playerBite; 
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        playerAudio = GetComponent<AudioSource>(); 
     }
 
     // Update is called once per frame
@@ -25,12 +29,13 @@ public class PlayerAttack : MonoBehaviour
         {
             if (Input.GetMouseButton(0))
             {
-                //Debug.Log("The left mouse button has been clicked");
+                
                 Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackPos.position, attackRange, whatIsEnemy);
                 for (int i = 0; i < enemiesToDamage.Length; i++)
                 {
-                    //Debug.Log("The enemy has been hit! Huzzah!");
-                    currentHealth = enemiesToDamage[i].GetComponent<EnemyMovement>().health -= damage;
+                    
+                    enemiesToDamage[i].GetComponent<EnemyMovement>().health -= damage; 
+                    playerAudio.PlayOneShot(bark, 0.7F);
                 }
             }
             timeBtwAttack = startTimeBtwAttack;

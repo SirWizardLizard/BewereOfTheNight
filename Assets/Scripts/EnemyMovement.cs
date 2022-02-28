@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
+    private AudioSource enemyAudio; 
+    public AudioClip slash; 
     // start is called before the first frame update
     public float speed;
     public int maxHealth;
+    public float speed; 
+    public int enemyDamage; 
     public int health; 
     public Transform groundDetection; 
     private bool moveRight = true; 
@@ -19,6 +23,7 @@ public class EnemyMovement : MonoBehaviour
     {
         health = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
+        enemyAudio = GetComponent<AudioSource>(); 
     }
 
     // Update is called once per frame
@@ -44,5 +49,14 @@ public class EnemyMovement : MonoBehaviour
             moveRight = true;
             }
         } 
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            enemyAudio.PlayOneShot(slash, 1.0F);
+            //collision.GetComponent<what ever the player health thing is called>().enemyDamage()
+        }
     }
 }
