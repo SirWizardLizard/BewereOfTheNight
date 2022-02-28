@@ -30,7 +30,6 @@ public class CharacterControl : MonoBehaviour
     {
         //Set the starting health to the players max health
         playerHealth = maxHealth;
-
         playerAudio = GetComponent<AudioSource>(); 
         t = transform;
         r2d = GetComponent<Rigidbody2D>();

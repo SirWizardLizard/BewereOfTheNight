@@ -20,9 +20,10 @@ public class HealthPowerUps : MonoBehaviour
             Destroy(gameObject);
             if((playerHealthScript.maxHealth - playerHealthScript.playerHealth)< healthBonus) 
             {
-                playerHealthScript.playerHealth = playerHealthScript.maxHealth;
+                other.GetComponent<HealthBar>().SetHealth(playerHealthScript.playerHealth = playerHealthScript.maxHealth);
             } else {
-                playerHealthScript.playerHealth += healthBonus;
+                other.GetComponent<HealthBar>().SetHealth(playerHealthScript.playerHealth += healthBonus);
+                
             }
         }
     }
