@@ -1,4 +1,9 @@
-﻿using System.Collections;
+﻿/* Team 1
+ * Project 2
+ * controls player attack damage
+ */
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
