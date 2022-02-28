@@ -1,8 +1,7 @@
 ﻿/* Team 1
  * Project 2
- * loads new scene
+ * Controls flag level change
  */
-
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
