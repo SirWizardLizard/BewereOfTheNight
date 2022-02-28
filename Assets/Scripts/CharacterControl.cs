@@ -7,12 +7,15 @@ using UnityEngine;
 
 public class CharacterControl : MonoBehaviour
 {
+    private AudioSource playerAudio; 
+    public AudioClip jump; 
+    public int playerHealth; 
     // Move player in 2D space
     public float maxSpeed = 3.4f;
     public float jumpHeight = 6.5f;
     public float gravityScale = 1.5f;
     public Camera mainCamera;
-
+    //AudioSource jumpSound; 
     bool facingRight = true;
     float moveDirection = 0;
     bool isGrounded = false;
@@ -24,6 +27,8 @@ public class CharacterControl : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        
+        playerAudio = GetComponent<AudioSource>(); 
         t = transform;
         r2d = GetComponent<Rigidbody2D>();
         mainCollider = GetComponent<CapsuleCollider2D>();
@@ -72,6 +77,7 @@ public class CharacterControl : MonoBehaviour
         // Jumping
         if ((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Space)) && isGrounded)
         {
+            playerAudio.PlayOneShot(jump, 1.0F); 
             r2d.velocity = new Vector2(r2d.velocity.x, jumpHeight);
         }
 
