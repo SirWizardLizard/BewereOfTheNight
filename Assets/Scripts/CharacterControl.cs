@@ -6,12 +6,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(CapsuleCollider2D))]
 
 public class CharacterControl : MonoBehaviour
 {
+    public GameObject textbox;
     public Transform player;
     public Vector3 offset;
     private AudioSource playerAudio; 
@@ -28,7 +31,7 @@ public class CharacterControl : MonoBehaviour
     float moveDirection = 0;
     bool isGrounded = false;
     bool isOnGround = true;
-    bool gameOver = false;
+    public bool gameOver = false;
     Vector3 cameraPos;
     Rigidbody2D r2d;
     CapsuleCollider2D mainCollider;
@@ -47,15 +50,16 @@ public class CharacterControl : MonoBehaviour
         r2d.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
         r2d.gravityScale = gravityScale;
         facingRight = t.localScale.x > 0;
+        textbox = GameObject.FindGameObjectWithTag("GameOverText");
 
-    
+
     }
 
     // Update is called once per frame
     void Update()
     {
         // Movement controls
-        if ((Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)) && (isGrounded || Mathf.Abs(r2d.velocity.x) > 0.01f))
+        if ((Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)) && (isGrounded || Mathf.Abs(r2d.velocity.x) > 0.01f) && !gameOver)
         {
             moveDirection = Input.GetKey(KeyCode.A) ? -1 : 1;
         }
@@ -68,7 +72,7 @@ public class CharacterControl : MonoBehaviour
         }
 
         // Change facing direction
-        if (moveDirection != 0)
+        if (moveDirection != 0 && !gameOver)
         {
             if (moveDirection > 0 && !facingRight)
             {
@@ -83,7 +87,7 @@ public class CharacterControl : MonoBehaviour
         }
 
         // Jumping
-        if ((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Space)) && isGrounded)
+        if ((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Space)) && isGrounded && !gameOver)
         {
             isGrounded = false; 
             playerAudio.PlayOneShot(jump, 1.0F); 
@@ -93,12 +97,14 @@ public class CharacterControl : MonoBehaviour
         //Kill player if health hits 0
         if(playerHealth <= 0) {
             Destroy(gameObject);
+            gameOver = true;
         }
 
         //Kill player if their y value falls below -2 and set the game to be over.
         if (transform.position.y < -2) {
             gameOver = true;
             Destroy(gameObject);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
 
