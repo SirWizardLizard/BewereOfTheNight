@@ -6,6 +6,8 @@ public class HealthPowerUps : MonoBehaviour
 {
     public CharacterControl playerHealthScript;
 
+    public GameObject pickupEffect;
+
     public int healthBonus = 5;
 
     private void Awake()
@@ -17,6 +19,7 @@ public class HealthPowerUps : MonoBehaviour
     {
         if (playerHealthScript.playerHealth < playerHealthScript.maxHealth)
         {
+            Instantiate(pickupEffect, transform.position, transform.rotation);
             Destroy(gameObject);
             if((playerHealthScript.maxHealth - playerHealthScript.playerHealth)< healthBonus) 
             {
