@@ -31,7 +31,6 @@ public class PlayerAttack : MonoBehaviour
                 {
                     //Debug.Log("The enemy has been hit! Huzzah!");
                     currentHealth = enemiesToDamage[i].GetComponent<EnemyMovement>().health -= damage;
-                    enemiesToDamage[i].GetComponent<HealthBar>().SetHealth(currentHealth);
                 }
             }
             timeBtwAttack = startTimeBtwAttack;
