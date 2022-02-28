@@ -1,4 +1,9 @@
-﻿using System.Collections;
+﻿/* Team 1
+ * Project 2
+ * controls player attacks
+ */
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -12,7 +17,8 @@ public class PlayerAttack : MonoBehaviour
     public Transform attackPos; 
     public LayerMask whatIsEnemy; 
     public float attackRange; 
-    public int damage; 
+    public int damage;
+    public int currentHealth;
     AudioSource playerBite; 
 
     // Start is called before the first frame update
@@ -26,7 +32,7 @@ public class PlayerAttack : MonoBehaviour
     {
         if (timeBtwAttack <=0)
         {
-            if (Input.GetKey(KeyCode.S))
+            if (Input.GetMouseButton(0))
             {
                 
                 Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackPos.position, attackRange, whatIsEnemy);

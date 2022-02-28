@@ -1,4 +1,9 @@
-﻿using System.Collections;
+﻿/* Team 1
+ * Project 2
+ * allows player control
+ */
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,7 +16,8 @@ public class CharacterControl : MonoBehaviour
     public Vector3 offset;
     private AudioSource playerAudio; 
     public AudioClip jump; 
-    public int playerHealth; 
+    public int playerHealth;
+    public int maxHealth;
     // Move player in 2D space
     public float maxSpeed = 3.4f;
     public float jumpHeight = 6.5f;
@@ -30,7 +36,8 @@ public class CharacterControl : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        
+        //Set the starting health to the players max health
+        playerHealth = maxHealth;
         playerAudio = GetComponent<AudioSource>(); 
         t = transform;
         r2d = GetComponent<Rigidbody2D>();
@@ -75,15 +82,17 @@ public class CharacterControl : MonoBehaviour
         }
 
         // Jumping
-        if (Input.GetKeyDown(KeyCode.W) && isGrounded)
+        if ((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Space)) && isGrounded)
         {
             isGrounded = false; 
             playerAudio.PlayOneShot(jump, 1.0F); 
             r2d.velocity = new Vector2(r2d.velocity.x, jumpHeight);
         }
 
-        // Camera follow
-        
+        //Kill player if health hits 0
+        if(playerHealth <= 0) {
+            Destroy(gameObject);
+        }
     }
 
 

@@ -4,6 +4,9 @@
 TagManager:
   serializedVersion: 2
   tags:
+  - Ground
+  - Block
+  - Health
   - Enemy
   - Ground
   layers:
@@ -15,7 +18,7 @@ TagManager:
   - UI
   - 
   - 
-  - Enemy
+  - Backgroiund
   - 
   - 
   - 
@@ -42,4 +45,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: BackGround
+    uniqueID: 1182410555
+    locked: 0
+  - name: PlayingArea
+    uniqueID: 2726600795
     locked: 0
