@@ -8,8 +8,6 @@ public class EnemyMovement : MonoBehaviour
     public AudioClip slash; 
     // start is called before the first frame update
     public float speed;
-    public int maxHealth;
-    public float speed; 
     public int enemyDamage; 
     public int health; 
     public Transform groundDetection; 
@@ -17,12 +15,8 @@ public class EnemyMovement : MonoBehaviour
     public float Raycast; 
     public float Raylength;
 
-    public HealthBar healthBar;
-
     void Start()
     {
-        health = maxHealth;
-        healthBar.SetMaxHealth(maxHealth);
         enemyAudio = GetComponent<AudioSource>(); 
     }
 
