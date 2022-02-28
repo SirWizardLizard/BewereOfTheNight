@@ -31,12 +31,11 @@ public class CharacterControl : MonoBehaviour
     float moveDirection = 0;
     bool isGrounded = false;
     bool isOnGround = true;
-    bool gameOver = false;
+    public bool gameOver = false;
     Vector3 cameraPos;
     Rigidbody2D r2d;
     CapsuleCollider2D mainCollider;
     Transform t;
-    public bool gameOver = false;
 
     // Use this for initialization
     void Start()
