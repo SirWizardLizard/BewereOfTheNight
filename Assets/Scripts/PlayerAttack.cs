@@ -12,7 +12,8 @@ public class PlayerAttack : MonoBehaviour
     public Transform attackPos; 
     public LayerMask whatIsEnemy; 
     public float attackRange; 
-    public int damage; 
+    public int damage;
+    public int currentHealth;
     AudioSource playerBite; 
 
     // Start is called before the first frame update
