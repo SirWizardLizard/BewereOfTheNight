@@ -1,8 +1,3 @@
-﻿/* Team 1
- * Project 2
- * controls enemy health
- */
-
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,9 +6,9 @@ public class EnemyMovement : MonoBehaviour
 {
     private AudioSource enemyAudio; 
     public AudioClip slash; 
+    public int enemyDamage; 
     // start is called before the first frame update
     public float speed; 
-    public int enemyDamage; 
     public int health; 
     public Transform groundDetection; 
     private bool moveRight = true; 
@@ -47,8 +42,8 @@ public class EnemyMovement : MonoBehaviour
             moveRight = true;
             }
         } 
-    }
 
+    }
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag == "Player")
@@ -57,4 +52,5 @@ public class EnemyMovement : MonoBehaviour
             //collision.GetComponent<what ever the player health thing is called>().enemyDamage()
         }
     }
+
 }
