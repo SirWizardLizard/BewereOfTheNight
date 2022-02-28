@@ -68,7 +68,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1568366501
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300048, guid: 067a4b54e352fb94c833c28c14a19255, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -120,4 +120,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerHealthScript: {fileID: 0}
+  pickupEffect: {fileID: 100000, guid: 54d548b1a922d54449e2bd5424597d57, type: 3}
   healthBonus: 15
