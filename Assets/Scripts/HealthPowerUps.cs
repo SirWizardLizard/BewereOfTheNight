@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class HealthPowerUps : MonoBehaviour
 {
-    public PlayerHealth playerHealthScript;
+    public CharacterControl playerHealthScript;
 
-    public int healthBonus = 10;
+    public int healthBonus = 5;
 
     private void Awake()
     {
-        playerHealthScript = FindObjectOfType<PlayerHealth>();
+        playerHealthScript = FindObjectOfType<CharacterControl>();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -18,7 +18,13 @@ public class HealthPowerUps : MonoBehaviour
         if (playerHealthScript.playerHealth < playerHealthScript.maxHealth)
         {
             Destroy(gameObject);
-            playerHealthScript.playerHealth += healthBonus;
+            if((playerHealthScript.maxHealth - playerHealthScript.playerHealth)< healthBonus) 
+            {
+                other.GetComponent<HealthBar>().SetHealth(playerHealthScript.playerHealth = playerHealthScript.maxHealth);
+            } else {
+                other.GetComponent<HealthBar>().SetHealth(playerHealthScript.playerHealth += healthBonus);
+                
+            }
         }
     }
 }
