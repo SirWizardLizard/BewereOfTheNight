@@ -14,11 +14,13 @@ using UnityEngine.SceneManagement;
 
 public class CharacterControl : MonoBehaviour
 {
+    private Animator anim;
     public GameObject textbox;
     public Transform player;
     public Vector3 offset;
     private AudioSource playerAudio; 
     public AudioClip jump; 
+    public AudioClip barking; 
     public int playerHealth;
     public int maxHealth;
     // Move player in 2D space
@@ -36,10 +38,12 @@ public class CharacterControl : MonoBehaviour
     Rigidbody2D r2d;
     CapsuleCollider2D mainCollider;
     Transform t;
+    public bool isMoving; 
 
     // Use this for initialization
     void Start()
     {
+        anim = GetComponent<Animator>(); 
         //Set the starting health to the players max health
         playerHealth = maxHealth;
         playerAudio = GetComponent<AudioSource>(); 
@@ -59,16 +63,27 @@ public class CharacterControl : MonoBehaviour
     void Update()
     {
         // Movement controls
-        if ((Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)) && (isGrounded || Mathf.Abs(r2d.velocity.x) > 0.01f) && !gameOver)
+        if ((Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)) && !gameOver)
         {
             moveDirection = Input.GetKey(KeyCode.A) ? -1 : 1;
+            anim.SetBool("isMoving", true);
         }
         else
         {
             if (isGrounded || r2d.velocity.magnitude < 0.01f)
             {
+                anim.SetBool("isMoving", false);
                 moveDirection = 0;
             }
+        }
+
+       if (Input.GetKey(KeyCode.Mouse0))
+        {
+            anim.SetBool("isBiting",true);
+             playerAudio.PlayOneShot(barking, .5F); 
+        } else
+        {
+            anim.SetBool("isBiting",false);
         }
 
         // Change facing direction
