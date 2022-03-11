@@ -46,6 +46,11 @@ public class CharacterControl : MonoBehaviour
         r2d.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
         r2d.gravityScale = gravityScale;
         facingRight = t.localScale.x > 0;
+<<<<<<< Updated upstream
+=======
+        //textbox = GameObject.FindGameObjectWithTag("GameOverText");
+
+>>>>>>> Stashed changes
 
     
     }
