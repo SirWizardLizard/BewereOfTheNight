@@ -6,16 +6,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(CapsuleCollider2D))]
 
 public class CharacterControl : MonoBehaviour
 {
+    private Animator anim;
+    public GameObject textbox;
     public Transform player;
     public Vector3 offset;
     private AudioSource playerAudio; 
     public AudioClip jump; 
+    public AudioClip barking; 
     public int playerHealth;
     public int maxHealth;
     // Move player in 2D space
@@ -27,15 +32,18 @@ public class CharacterControl : MonoBehaviour
     bool facingRight = true;
     float moveDirection = 0;
     bool isGrounded = false;
-    bool isOnGround = true; 
+    bool isOnGround = true;
+    public bool gameOver = false;
     Vector3 cameraPos;
     Rigidbody2D r2d;
     CapsuleCollider2D mainCollider;
     Transform t;
+    public bool isMoving; 
 
     // Use this for initialization
     void Start()
     {
+        anim = GetComponent<Animator>(); 
         //Set the starting health to the players max health
         playerHealth = maxHealth;
         playerAudio = GetComponent<AudioSource>(); 
@@ -46,33 +54,39 @@ public class CharacterControl : MonoBehaviour
         r2d.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
         r2d.gravityScale = gravityScale;
         facingRight = t.localScale.x > 0;
-<<<<<<< Updated upstream
-=======
         //textbox = GameObject.FindGameObjectWithTag("GameOverText");
 
->>>>>>> Stashed changes
-
-    
     }
 
     // Update is called once per frame
     void Update()
     {
         // Movement controls
-        if ((Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)) && (isGrounded || Mathf.Abs(r2d.velocity.x) > 0.01f))
+        if ((Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)) && !gameOver)
         {
             moveDirection = Input.GetKey(KeyCode.A) ? -1 : 1;
+            anim.SetBool("isMoving", true);
         }
         else
         {
             if (isGrounded || r2d.velocity.magnitude < 0.01f)
             {
+                anim.SetBool("isMoving", false);
                 moveDirection = 0;
             }
         }
 
+       if (Input.GetKey(KeyCode.Mouse0))
+        {
+            anim.SetBool("isBiting",true);
+             playerAudio.PlayOneShot(barking, .5F); 
+        } else
+        {
+            anim.SetBool("isBiting",false);
+        }
+
         // Change facing direction
-        if (moveDirection != 0)
+        if (moveDirection != 0 && !gameOver)
         {
             if (moveDirection > 0 && !facingRight)
             {
@@ -87,7 +101,7 @@ public class CharacterControl : MonoBehaviour
         }
 
         // Jumping
-        if ((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Space)) && isGrounded)
+        if ((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Space)) && isGrounded && !gameOver)
         {
             isGrounded = false; 
             playerAudio.PlayOneShot(jump, 1.0F); 
@@ -97,6 +111,14 @@ public class CharacterControl : MonoBehaviour
         //Kill player if health hits 0
         if(playerHealth <= 0) {
             Destroy(gameObject);
+            gameOver = true;
+        }
+
+        //Kill player if their y value falls below -2 and set the game to be over.
+        if (transform.position.y < -2) {
+            gameOver = true;
+            Destroy(gameObject);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
 

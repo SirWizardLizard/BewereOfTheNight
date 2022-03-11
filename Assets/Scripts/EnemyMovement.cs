@@ -1,10 +1,18 @@
+/* Team 1
+ * project 2
+ * controls enemy stats
+ */
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyMovement : MonoBehaviour
 {
-    private AudioSource enemyAudio; 
+    private AudioSource enemyAudio;
+    public DisplayKillCounter killCounterScript;
+    public Text textBox;
     public AudioClip slash; 
     public int enemyDamage; 
     // start is called before the first frame update
@@ -17,7 +25,9 @@ public class EnemyMovement : MonoBehaviour
 
     void Start()
     {
-        enemyAudio = GetComponent<AudioSource>(); 
+        enemyAudio = GetComponent<AudioSource>();
+        textBox = GetComponent<Text>();
+        killCounterScript = GameObject.FindGameObjectWithTag("KillCounterText").GetComponent<DisplayKillCounter>();
     }
 
     // Update is called once per frame
@@ -25,7 +35,8 @@ public class EnemyMovement : MonoBehaviour
     {
         if (health <= 0)
         {
-            Destroy(gameObject); 
+            Destroy(gameObject);
+            killCounterScript.killCounter += 1;
         }
 
         transform.Translate(Vector2.right * speed * Time.deltaTime); 

@@ -40,7 +40,7 @@ public class PlayerAttack : MonoBehaviour
                 {
                     
                     enemiesToDamage[i].GetComponent<EnemyMovement>().health -= damage; 
-                    playerAudio.PlayOneShot(bark, 0.7F);
+                    //playerAudio.PlayOneShot(bark, 0.7F);
                 }
             }
             timeBtwAttack = startTimeBtwAttack;
