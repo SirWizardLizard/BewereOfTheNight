@@ -49,6 +49,7 @@ GameObject:
   - component: {fileID: 4963144383246044459}
   - component: {fileID: 4963144383246044462}
   - component: {fileID: 4963144383246044463}
+  - component: {fileID: 95635639041460794}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -154,8 +155,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.6399999, y: 0.6399999}
+  m_Offset: {x: 0, y: 0.2232117}
+  m_Size: {x: 0.6399999, y: 0.7185505}
   m_Direction: 0
 --- !u!114 &4963144383246044468
 MonoBehaviour:
@@ -169,15 +170,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c058d4b58819e43e7a2b9b6a96df5e22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  textbox: {fileID: 0}
   player: {fileID: 0}
   offset: {x: 0, y: 0, z: 0}
   jump: {fileID: 8300000, guid: 8da5b44f27c2e4460b7aef58277f78d3, type: 3}
+  barking: {fileID: 8300000, guid: 8d37ee475f7044af6916cfa9324eb6fa, type: 3}
   playerHealth: 0
   maxHealth: 10
   maxSpeed: 8
   jumpHeight: 20
   gravityScale: 3.5
   mainCamera: {fileID: 0}
+  gameOver: 0
+  isMoving: 0
 --- !u!114 &4963144383246044458
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -190,7 +195,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8af577d6ec2844d7a31a77181e2d9b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bark: {fileID: 8300000, guid: 8d37ee475f7044af6916cfa9324eb6fa, type: 3}
+  bark: {fileID: 0}
   startTimeBtwAttack: 0.1
   attackPos: {fileID: 4963144382043075757}
   whatIsEnemy:
@@ -211,7 +216,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 7e8988521eb9041bfb219c7b0949f983, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.23
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -403,7 +408,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 8d37ee475f7044af6916cfa9324eb6fa, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.39
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -626,6 +631,25 @@ MonoBehaviour:
     m_NumColorKeys: 3
     m_NumAlphaKeys: 2
   fill: {fileID: 3489444212978969196}
+--- !u!95 &95635639041460794
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4963144383246044467}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 24427d946bdd7424bbc8ccd450379763, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &8401389764812051207
 GameObject:
   m_ObjectHideFlags: 0
