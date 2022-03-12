@@ -15,7 +15,7 @@ public class AttackPowerUp : MonoBehaviour
 
     public int multiplier = 2;
 
-    public float duration = 5f;
+    public float duration = 10f;
     
     public int damageBonus;
     private void Awake()
