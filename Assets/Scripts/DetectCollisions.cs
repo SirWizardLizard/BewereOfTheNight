@@ -17,12 +17,6 @@ public class DetectCollisions : MonoBehaviour
         healthPowerUpScript = GameObject.FindGameObjectWithTag("Health").GetComponent<HealthPowerUps>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Destroy(collision.gameObject);

@@ -1,6 +1,6 @@
 ﻿/* Team 1
  * Project 2
- * Controls flag level change for level 6 originally looped to 1, now will show winning screen
+ * Controls flag level change for level 6 originally looped to 1, now useless
  */
 using System.Collections;
 using System.Collections.Generic;
