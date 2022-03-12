@@ -11,7 +11,8 @@ using UnityEngine.UI;
 public class EnemyMovement : MonoBehaviour
 {
     private AudioSource enemyAudio;
-    public DisplayKillCounter killCounterScript;
+    //changed for flag
+    //public DisplayKillCounter killCounterScript;
     public Text textBox;
     public AudioClip slash; 
     public int enemyDamage; 
@@ -27,7 +28,7 @@ public class EnemyMovement : MonoBehaviour
     {
         enemyAudio = GetComponent<AudioSource>();
         textBox = GetComponent<Text>();
-        killCounterScript = GameObject.FindGameObjectWithTag("KillCounterText").GetComponent<DisplayKillCounter>();
+        //killCounterScript = GameObject.FindGameObjectWithTag("KillCounterText").GetComponent<DisplayKillCounter>();
     }
 
     // Update is called once per frame
@@ -36,7 +37,8 @@ public class EnemyMovement : MonoBehaviour
         if (health <= 0)
         {
             Destroy(gameObject);
-            killCounterScript.killCounter += 1;
+            //killCounterScript.killCounter += 1;
+            DisplayKillCounter.killCounter++;
         }
 
         transform.Translate(Vector2.right * speed * Time.deltaTime); 

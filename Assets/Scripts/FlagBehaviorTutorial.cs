@@ -1,25 +1,20 @@
 ﻿/* Team 1
  * Project 2
  * Controls flag level change
+ * variant for tutorial levels where there arent 5 enemies
  */
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class FlagBehavior : MonoBehaviour
+public class FlagBehaviorTutorial : MonoBehaviour
 {
-    //public DisplayKillCounter Score;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     //if player collides with flag the next scene is loaded
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if ((other.gameObject.tag == "Player") && (DisplayKillCounter.killCounter >= 5))
+        if ((other.gameObject.tag == "Player"))
         {
             //reset score each level
             DisplayKillCounter.killCounter = 0;

@@ -33,7 +33,8 @@ public class CharacterControl : MonoBehaviour
     float moveDirection = 0;
     bool isGrounded = false;
     bool isOnGround = true;
-    public bool gameOver = false;
+    //made static for r to restart 
+    public static bool gameOver = false;
     Vector3 cameraPos;
     Rigidbody2D r2d;
     CapsuleCollider2D mainCollider;
@@ -110,15 +111,16 @@ public class CharacterControl : MonoBehaviour
 
         //Kill player if health hits 0
         if(playerHealth <= 0) {
-            Destroy(gameObject);
+          //  Destroy(gameObject);
             gameOver = true;
         }
 
         //Kill player if their y value falls below -2 and set the game to be over.
         if (transform.position.y < -2) {
             gameOver = true;
-            Destroy(gameObject);
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+          //  Destroy(gameObject);
+            //commment out to add r to restart
+            //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
 

@@ -11,12 +11,14 @@ using UnityEngine.UI;
 public class DisplayKillCounter : MonoBehaviour
 {
     public Text textbox;
-    public int killCounter = 0;
+    //made static for flag script
+    public static int killCounter = 0;
     // Start is called before the first frame update
     void Start()
     {
+        
         textbox = GetComponent<Text>();
-        textbox.text = "Kills: 0";
+        textbox.text = "Kills: " + killCounter;
     }
 
     // Update is called once per frame
