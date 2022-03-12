@@ -15,9 +15,10 @@ public class MainCamera : MonoBehaviour
     // Update is called once per frame
     void Update()
     {   //added so it wont follow forever ~QL
-        if (CharacterControl.gameOver == !true)
-        {
+        //if (CharacterControl.gameOver == !true)
+       // {
             transform.position = new Vector3(player.position.x + offset.x, player.position.y + offset.y, offset.z); // Camera follows the player with specified offset position
-        }
+       // }
+       //didnt work out camera wouldnt reset on death
     }
 }
